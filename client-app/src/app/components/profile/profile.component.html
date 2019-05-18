@@ -1,0 +1,21 @@
+<div>
+<input type="text" class="p-2 text-center col-9 m-auto text-lg" name="title" [(ngModel)]="title" />  
+<button class="btn btn-large btn-primary ml-2" (click)="inEdit ? handleEditSubmit():handleAddTodo()" >
+ {{ inEdit ? 'Edit' : 'Add New'}} </button> 
+<button *ngIf='inEdit' class="btn btn-large ml-2 btn-primary" (click)="handleCancelEdit()" > Cancel </button> 
+</div>
+
+<ul class="list-group mt-3" *ngFor = 'let todo of todos; let i =index; '[class.active]='todoId == i' >
+  
+  <li class="list-group-item list-group-item-primary" style="cursor:pointer" >
+    <input type="checkbox" class='p-2 mr-2' (click)='handleChecked(todo._id)' [checked]='todo.completed'>
+ 
+    <i [ngStyle]="{'text-decoration': todo.completed? 'line-through' : ''}">{{todo.title}} </i>
+ 
+    <button class="btn btn-secondary ml-1 float-right" (click)='handleEdit(todo)' > Edit </button>
+
+    <button class="btn btn-danger ml-1 float-right" (click)="handleDelete(todo._id)" >
+      [X] </button>
+  </li>
+
+</ul> 
