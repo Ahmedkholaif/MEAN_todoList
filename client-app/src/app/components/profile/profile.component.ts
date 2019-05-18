@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
       const todo = res.body;
       this.todos = [todo, ...this.todos];
       console.log(this.todos);
+      this.title = '';
       // this.todos
     });
   }
