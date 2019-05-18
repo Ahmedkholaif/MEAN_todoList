@@ -10,26 +10,21 @@ import {UserApiService} from '../../services/user-api.service';
 export class NavbarComponent implements OnInit {
 
   token = localStorage.token ;
-  user = localStorage.user;
-
-  if(user){
-    user = JSON.parse(localStorage.user);
-  }
+  
   constructor(
     private router: Router,
     private userApi: UserApiService
     ) {
+  }
+
+  ngOnInit() {
     if ( ! this.token) {
       this.router.navigate(['']);
     }
   }
 
-  ngOnInit() {
-  }
-
   handleSignout() {
     this.userApi.signOut().subscribe(res =>{
-      console.log(res);
       localStorage.clear();
       this.router.navigate(['']);
     });

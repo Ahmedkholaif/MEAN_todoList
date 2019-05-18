@@ -1,7 +1,8 @@
 <div class="jumbotron text-center">
   <h1> PayMe - Todo List </h1>
   <div>
-    <a class="btn btn-primary ml-2" [routerLink]="['/login']">Login </a>
-    <a class="btn btn-primary ml-2" [routerLink]="['/register']">Register </a>
+    <a *ngIf='!userApi.authGuard()' class="btn btn-primary ml-2" [routerLink]="['/login']">Login </a>
+    <a *ngIf='!userApi.authGuard()' class="btn btn-secondary ml-2" [routerLink]="['/register']">Register </a>
+    <a *ngIf='userApi.authGuard()' class="btn btn-success ml-2" [routerLink]="['profile']"> My Profile </a>
   </div>
 </div>

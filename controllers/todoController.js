@@ -10,7 +10,6 @@ const listTodos = async (req,res)=>{
 }
 
 const createTodo = (req,res)=>{
-    console.log(req);
     const {user} = req;
 
     const {title} = req.body;
@@ -36,7 +35,6 @@ const createTodo = (req,res)=>{
 
 
 const editTodo = (req,res)=>{
-    console.log(req.body,req.params);
     const {title} = req.body;
     const {id} = req.params;
 
@@ -45,7 +43,6 @@ const editTodo = (req,res)=>{
     }else {
         Todo.findByIdAndUpdate(id,{$set: {title}},{new: true})
         .then(todo=>{
-            console.log(todo);
             return res.status(201).json(todo);
         })
         .catch(err => res.json({err}));
@@ -54,7 +51,6 @@ const editTodo = (req,res)=>{
 
 const checkTodo = (req,res)=>{
     
-    console.log(req);
     const {id} = req.params;
 
     Todo.findById(id)
@@ -70,7 +66,6 @@ const checkTodo = (req,res)=>{
 
 const deleteTodo = (req,res)=>{
     
-    console.log(req.params,req);
     const {id} = req.params;
     const {user} = req ;
     Todo.findByIdAndRemove(id)

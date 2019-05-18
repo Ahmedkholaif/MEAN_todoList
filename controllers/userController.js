@@ -8,46 +8,33 @@ const createUser = function(req,res){
  
     const {name,email,password} = req.body.user;
     let avatar;
-    let errors ={
-        name:[],
-        email:[],
-        password:[],
-    };
+    let errors =[];
 
     //name validation
     if(! name){
-      errors.name=[...errors.name,{error:'blank'}];
-    }else{
-      delete errors.name;
+      errors=[...errors,'blank email'];
     }
 
     //password validation 
 
     if( password.length < 6){
-      errors.password = [...errors.password,{error: 'too short',minimum:6}];
-    }else{
-      delete errors.password;
+      errors = [...errors,' error:too short,minimum:6'];
     }
     
     //email validation 
-
-    if ( ! email) {
-      errors.email=[...errors.email,{error:'blank'}];
-    }else if(! validator.isEmail(email)){
-      errors.email=[...errors.email,{error:'Invalid Email'}];
-    }else {
-      delete errors.email
+   if(! validator.isEmail(email)){
+      errors=[...errors,'error:Invalid Email '];
     }
 
     //check for errors or proceed
-    if (Object.keys(errors).length) 
-      return res.status(400).json({errors});
+    if (errors.length > 0 ) 
+      return res.status(400).json(errors);
     else {
       User.findOne({email})
       .then( user =>{
           if(user){
-            errors.email=[{error:'already taken'}];
-            return res.status(400).json({errors});
+            errors=['email already taken'];
+            return res.status(400).json(errors);
           }else{
             //create new user 
             const user = new User({
@@ -73,8 +60,6 @@ const createUser = function(req,res){
 const login = function(req,res){
 
   const {email,password} = req.body.user;
-  console.log('req.body');
-  console.log({email,password});
   if( ! email || ! password)
     return res.status(400).json({errors:'blank email or password'});
 
@@ -83,7 +68,6 @@ const login = function(req,res){
     if (!user) {
       return res.status(404).json({ err: "Invalid email Or Password " });
     } else {
-        console.log(user);
         bcrypt.compare(password, user.password)
         .then(isMatch => {
         if(isMatch) {
@@ -96,7 +80,6 @@ const login = function(req,res){
         }
       })
       .catch(err => {
-        console.log(err);  
         res.json({err})});
     }
   });

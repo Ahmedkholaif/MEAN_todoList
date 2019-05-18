@@ -16,7 +16,6 @@ export class UserApiService {
     };
     const headers = new HttpHeaders();
     headers.append('ffffd', 'dddddd');
-
     return this.httpClient.post(`users`, body, {
       headers : new HttpHeaders({
         'Content-Type':  'application/json',
@@ -50,6 +49,14 @@ export class UserApiService {
       }),
       observe: 'response',
     });
+  }
+  authGuard() {
+    const token = localStorage.token;
+    if(token) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 

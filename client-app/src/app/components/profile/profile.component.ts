@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoApiService } from '../../services/todo-api.service';
 import { Router } from '@angular/router';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
   selector: 'app-profile',
@@ -14,35 +15,58 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private todoApi: TodoApiService,
-    router: Router
+    router: Router,
+    private ngFlash: NgFlashMessageService,
   ) { }
 
   ngOnInit() {
     
     this.todoApi.getTodos().subscribe(res => {
-      console.log(res);
       this.todos = res.body;
     });
   }
 
 
   handleAddTodo() {
-    console.log(this.todos);
 
-    console.log(this.title);
+    if (! this.title) {
+
+      this.ngFlash.showFlashMessage({
+        messages: ['no todo entered'],
+        // Whether the flash can be dismissed by the user defaults to false
+        dismissible: true,
+        // Time after which the flash disappears defaults to 2000ms
+        timeout: 5000,
+        // Type of flash message, it defaults to info and success, warning, danger types can also be used
+        type: 'danger'});
+      return;
+    }
     this.todoApi.addTodo(this.title).subscribe((res) => {
-      console.log(res);
-      const todo = res.body;
-      this.todos = [todo, ...this.todos];
-      console.log(this.todos);
-      this.title = '';
-      // this.todos
-    });
+      if(res.ok) {
+        const todo = res.body;
+        this.todos = [todo, ...this.todos];
+        this.title = '';
+        this.ngFlash.showFlashMessage({
+        messages: ['todo added'],
+        // Whether the flash can be dismissed by the user defaults to false
+        dismissible: true,
+        // Time after which the flash disappears defaults to 2000ms
+        timeout: 5000,
+        type: 'success'});
+        return;
+      }else {
+        this.ngFlash.showFlashMessage({
+          messages: ['error : try again'],
+          // Whether the flash can be dismissed by the user defaults to false
+          dismissible: true,
+          // Time after which the flash disappears defaults to 2000ms
+          timeout: 5000,
+          type: 'danger'});
+      }
+   });
   }
-
   handleChecked(todoId) {
     this.todoApi.checkTodo(todoId).subscribe(res => {
-      console.log(res);
       this.todos = this.todos.map(todo => todo._id === todoId ? {...todo,completed: !todo.completed} : todo);
     });
   }
@@ -59,17 +83,32 @@ export class ProfileComponent implements OnInit {
 
   handleEditSubmit() {
     this.todoApi.editTodo(this.inEdit._id, this.title).subscribe(res => {
-      console.log(res);
       this.todos = this.todos.map(todo => todo._id === this.inEdit._id ? {...todo, title: this.title} : todo);
       this.inEdit = null;
       this.title = '';
+      this.ngFlash.showFlashMessage({
+        messages: ['todo updated'],
+        // Whether the flash can be dismissed by the user defaults to false
+        dismissible: true,
+        // Time after which the flash disappears defaults to 2000ms
+        timeout: 5000,
+        type: 'success'});
     });
   }
   handleDelete(todoId) {
-    this.todoApi.deleteTodo(todoId).subscribe(res => {
-      console.log(res);
-      this.todos = this.todos.filter(todo => todo._id !== todoId );
-    });
+    if ( confirm('Are You sure..?')) {
+
+      this.todoApi.deleteTodo(todoId).subscribe(res => {
+        this.todos = this.todos.filter(todo => todo._id !== todoId );
+        this.ngFlash.showFlashMessage({
+          messages: ['todo deleted'],
+          // Whether the flash can be dismissed by the user defaults to false
+          dismissible: true,
+          // Time after which the flash disappears defaults to 2000ms
+          timeout: 5000,
+          type: 'success'});
+      });
+    }
   }
 }
 
@@ -80,9 +119,3 @@ export interface Todo {
   _id: string;
 }
 
-// export interface Res {
-//   body: Body;
-// }
-// export interface Body {
-//   todo: Todo;
-// }

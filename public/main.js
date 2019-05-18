@@ -87,7 +87,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n\n<div class=\"container mt-5\">\n\n  <router-outlet></router-outlet>\n\n</div>"
+module.exports = "<app-navbar></app-navbar>\n\n<div class=\"container mt-5\">\n\n  <ng-flash-message></ng-flash-message>\n  <router-outlet></router-outlet>\n\n</div>"
 
 /***/ }),
 
@@ -138,13 +138,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
-/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
-/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
-/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
-/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/login/login.component */ "./src/app/components/login/login.component.ts");
+/* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
+/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
+
 
 
 
@@ -163,21 +166,22 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _components_home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
-                _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_8__["NavbarComponent"],
-                _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-                _components_register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
-                _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_11__["ProfileComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+                _components_home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
+                _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"],
+                _components_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                _components_register_register_component__WEBPACK_IMPORTED_MODULE_11__["RegisterComponent"],
+                _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_12__["ProfileComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+                ng_flash_messages__WEBPACK_IMPORTED_MODULE_5__["NgFlashMessagesModule"].forRoot(),
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -205,7 +209,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1> PayMe - Todo List </h1>\n  <div>\n    <a class=\"btn btn-primary ml-2\" [routerLink]=\"['/login']\">Login </a>\n    <a class=\"btn btn-primary ml-2\" [routerLink]=\"['/register']\">Register </a>\n  </div>\n</div>\n"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1> PayMe - Todo List </h1>\n  <div>\n    <a *ngIf='!userApi.authGuard()' class=\"btn btn-primary ml-2\" [routerLink]=\"['/login']\">Login </a>\n    <a *ngIf='!userApi.authGuard()' class=\"btn btn-secondary ml-2\" [routerLink]=\"['/register']\">Register </a>\n    <a *ngIf='userApi.authGuard()' class=\"btn btn-success ml-2\" [routerLink]=\"['profile']\"> My Profile </a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -221,10 +225,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/user-api.service */ "./src/app/services/user-api.service.ts");
+
 
 
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(userApi) {
+        this.userApi = userApi;
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
@@ -234,7 +241,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_api_service__WEBPACK_IMPORTED_MODULE_2__["UserApiService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -279,37 +286,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var src_app_services_user_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/user-api.service */ "./src/app/services/user-api.service.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(userApi, router) {
+    function LoginComponent(userApi, router, ngFlash) {
         this.userApi = userApi;
         this.router = router;
+        this.ngFlash = ngFlash;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.submitForm = function () {
         var _this = this;
+        if (!this.email || !this.password) {
+            this.ngFlash.showFlashMessage({
+                messages: ['Please fill in all fields'],
+                // Whether the flash can be dismissed by the user defaults to false
+                dismissible: true,
+                // Time after which the flash disappears defaults to 2000ms
+                timeout: 5000,
+                // Type of flash message, it defaults to info and success, warning, danger types can also be used
+                type: 'danger'
+            });
+            return;
+        }
         var user = {
             email: this.email,
             password: this.password,
         };
         this.userApi.login(user).subscribe(function (res) {
             if (res.ok) {
-                console.log('"ok"', res);
                 localStorage.setItem('token', res.body['auth-token']);
                 localStorage.setItem('user', JSON.stringify(res.body.user));
                 _this.router.navigate(['/profile']);
             }
             else {
-                console.log(res);
-                console.log(res.headers);
-                console.log('"hhhhhhhhhhh"');
+                _this.ngFlash.showFlashMessage({
+                    messages: ['Please enter valid data'],
+                    // Whether the flash can be dismissed by the user defaults to false
+                    dismissible: true,
+                    // Time after which the flash disappears defaults to 2000ms
+                    timeout: 5000,
+                    // Type of flash message, it defaults to info and success, warning, danger types can also be used
+                    type: 'danger'
+                });
             }
         }, function (err) {
-            console.log(err);
+            alert(err);
         });
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -319,7 +347,8 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/components/login/login.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_api_service__WEBPACK_IMPORTED_MODULE_3__["UserApiService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__["NgFlashMessageService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -346,7 +375,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-dark bg-dark\">\n\n  <a class=\"navbar-brand\" href=\"#\">Todo List - PayMe</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav navbar-left mr-auto\">\n      <li class=\"nav-item \" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link\" [routerLink]=\"['/']\"> Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav navbar-right\">\n      <li *ngIf='!token' class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link\" [routerLink]=\"['login']\">Login</a>\n      </li >\n      <li *ngIf='!token' class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link \" [routerLink]=\"['register']\" tabindex=\"-1\" aria-disabled=\"true\">Register</a>\n      </li>\n      <li *ngIf='token' class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        {{user.email}}<a class=\"nav-link \"  tabindex=\"-1\" aria-disabled=\"true\"\n        (click)='handleSignout()'\n        >Sign Out</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n "
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-dark bg-dark\">\n\n  <a class=\"navbar-brand\" href=\"#\">Todo List - PayMe</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav navbar-left mr-auto\">\n      <li class=\"nav-item \" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link\" style='cursor:pointer' [routerLink]=\"['/']\"> Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li *ngIf='userApi.authGuard()' class=\"nav-item \" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link\" style='cursor:pointer' [routerLink]=\"['profile']\"> Profile <span class=\"sr-only\"></span></a>\n      </li>\n    </ul>\n    <ul class=\"navbar-nav navbar-right\">\n      <li *ngIf='!userApi.authGuard()' class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link\" style='cursor:pointer' [routerLink]=\"['login']\"><strong> Login </strong></a>\n      </li >\n      <li *ngIf='!userApi.authGuard()' class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n        <a class=\"nav-link \" style='cursor:pointer' [routerLink]=\"['register']\" tabindex=\"-1\" aria-disabled=\"true\">Register</a>\n      </li>\n      <li *ngIf='userApi.authGuard()' class=\"nav-item\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\">\n         <a class=\"nav-link \" style='cursor:pointer'\n        (click)='handleSignout()'\n        >Sign Out</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n "
 
 /***/ }),
 
@@ -373,20 +402,15 @@ var NavbarComponent = /** @class */ (function () {
         this.router = router;
         this.userApi = userApi;
         this.token = localStorage.token;
-        this.user = localStorage.user;
+    }
+    NavbarComponent.prototype.ngOnInit = function () {
         if (!this.token) {
             this.router.navigate(['']);
         }
-    }
-    NavbarComponent.prototype.if = function (user) {
-        user = JSON.parse(localStorage.user);
-    };
-    NavbarComponent.prototype.ngOnInit = function () {
     };
     NavbarComponent.prototype.handleSignout = function () {
         var _this = this;
         this.userApi.signOut().subscribe(function (res) {
-            console.log(res);
             localStorage.clear();
             _this.router.navigate(['']);
         });
@@ -443,38 +467,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_todo_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/todo-api.service */ "./src/app/services/todo-api.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(todoApi, router) {
+    function ProfileComponent(todoApi, router, ngFlash) {
         this.todoApi = todoApi;
+        this.ngFlash = ngFlash;
         this.inEdit = null;
     }
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.todoApi.getTodos().subscribe(function (res) {
-            console.log(res);
             _this.todos = res.body;
         });
     };
     ProfileComponent.prototype.handleAddTodo = function () {
         var _this = this;
-        console.log(this.todos);
-        console.log(this.title);
+        if (!this.title) {
+            this.ngFlash.showFlashMessage({
+                messages: ['no todo entered'],
+                // Whether the flash can be dismissed by the user defaults to false
+                dismissible: true,
+                // Time after which the flash disappears defaults to 2000ms
+                timeout: 5000,
+                // Type of flash message, it defaults to info and success, warning, danger types can also be used
+                type: 'danger'
+            });
+            return;
+        }
         this.todoApi.addTodo(this.title).subscribe(function (res) {
-            console.log(res);
-            var todo = res.body;
-            _this.todos = [todo].concat(_this.todos);
-            console.log(_this.todos);
-            // this.todos
+            if (res.ok) {
+                var todo = res.body;
+                _this.todos = [todo].concat(_this.todos);
+                _this.title = '';
+                _this.ngFlash.showFlashMessage({
+                    messages: ['todo added'],
+                    // Whether the flash can be dismissed by the user defaults to false
+                    dismissible: true,
+                    // Time after which the flash disappears defaults to 2000ms
+                    timeout: 5000,
+                    type: 'success'
+                });
+                return;
+            }
+            else {
+                _this.ngFlash.showFlashMessage({
+                    messages: ['error : try again'],
+                    // Whether the flash can be dismissed by the user defaults to false
+                    dismissible: true,
+                    // Time after which the flash disappears defaults to 2000ms
+                    timeout: 5000,
+                    type: 'danger'
+                });
+            }
         });
     };
     ProfileComponent.prototype.handleChecked = function (todoId) {
         var _this = this;
         this.todoApi.checkTodo(todoId).subscribe(function (res) {
-            console.log(res);
             _this.todos = _this.todos.map(function (todo) { return todo._id === todoId ? tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, todo, { completed: !todo.completed }) : todo; });
         });
     };
@@ -489,18 +544,34 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.handleEditSubmit = function () {
         var _this = this;
         this.todoApi.editTodo(this.inEdit._id, this.title).subscribe(function (res) {
-            console.log(res);
             _this.todos = _this.todos.map(function (todo) { return todo._id === _this.inEdit._id ? tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, todo, { title: _this.title }) : todo; });
             _this.inEdit = null;
             _this.title = '';
+            _this.ngFlash.showFlashMessage({
+                messages: ['todo updated'],
+                // Whether the flash can be dismissed by the user defaults to false
+                dismissible: true,
+                // Time after which the flash disappears defaults to 2000ms
+                timeout: 5000,
+                type: 'success'
+            });
         });
     };
     ProfileComponent.prototype.handleDelete = function (todoId) {
         var _this = this;
-        this.todoApi.deleteTodo(todoId).subscribe(function (res) {
-            console.log(res);
-            _this.todos = _this.todos.filter(function (todo) { return todo._id !== todoId; });
-        });
+        if (confirm('Are You sure..?')) {
+            this.todoApi.deleteTodo(todoId).subscribe(function (res) {
+                _this.todos = _this.todos.filter(function (todo) { return todo._id !== todoId; });
+                _this.ngFlash.showFlashMessage({
+                    messages: ['todo deleted'],
+                    // Whether the flash can be dismissed by the user defaults to false
+                    dismissible: true,
+                    // Time after which the flash disappears defaults to 2000ms
+                    timeout: 5000,
+                    type: 'success'
+                });
+            });
+        }
     };
     ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -509,17 +580,12 @@ var ProfileComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/components/profile/profile.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_todo_api_service__WEBPACK_IMPORTED_MODULE_2__["TodoApiService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__["NgFlashMessageService"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
 
-// export interface Res {
-//   body: Body;
-// }
-// export interface Body {
-//   todo: Todo;
-// }
 
 
 /***/ }),
@@ -560,19 +626,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var src_app_services_user_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user-api.service */ "./src/app/services/user-api.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(userApi, router) {
+    function RegisterComponent(userApi, router, ngFlash) {
         this.userApi = userApi;
         this.router = router;
+        this.ngFlash = ngFlash;
     }
     RegisterComponent.prototype.ngOnInit = function () {
     };
     RegisterComponent.prototype.submitForm = function () {
         var _this = this;
+        if (!this.email || !this.name || !this.password) {
+            this.ngFlash.showFlashMessage({
+                messages: ['Please fill in all fields'],
+                // Whether the flash can be dismissed by the user defaults to false
+                dismissible: true,
+                // Time after which the flash disappears defaults to 2000ms
+                timeout: 5000,
+                // Type of flash message, it defaults to info and success, warning, danger types can also be used
+                type: 'danger'
+            });
+            return;
+        }
+        var mValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!this.email.match(mValid)) {
+            this.ngFlash.showFlashMessage({
+                messages: ['Please enter a valid email'],
+                // Whether the flash can be dismissed by the user defaults to false
+                dismissible: true,
+                // Time after which the flash disappears defaults to 2000ms
+                timeout: 5000,
+                // Type of flash message, it defaults to info and success, warning, danger types can also be used
+                type: 'danger'
+            });
+            return;
+        }
         var user = {
             name: this.name,
             email: this.email,
@@ -580,18 +675,23 @@ var RegisterComponent = /** @class */ (function () {
         };
         this.userApi.register(user).subscribe(function (res) {
             if (res.ok) {
-                console.log('"ok"', res);
                 localStorage.setItem('token', res.body['auth-token']);
                 localStorage.setItem('user', JSON.stringify(res.body.user));
-                _this.router.navigate(['/login']);
+                _this.router.navigate(['/profile']);
             }
             else {
-                console.log(res);
-                console.log(res.headers);
-                console.log('"hhhhhhhhhhh"');
+                _this.ngFlash.showFlashMessage({
+                    messages: ['invalid data'],
+                    // Whether the flash can be dismissed by the user defaults to false
+                    dismissible: true,
+                    // Time after which the flash disappears defaults to 2000ms
+                    timeout: 5000,
+                    // Type of flash message, it defaults to info and success, warning, danger types can also be used
+                    type: 'danger'
+                });
             }
         }, function (err) {
-            console.log(err);
+            alert(err);
         });
     };
     RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -601,7 +701,8 @@ var RegisterComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/components/register/register.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_api_service__WEBPACK_IMPORTED_MODULE_2__["UserApiService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__["NgFlashMessageService"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());
@@ -747,6 +848,15 @@ var UserApiService = /** @class */ (function () {
             }),
             observe: 'response',
         });
+    };
+    UserApiService.prototype.authGuard = function () {
+        var token = localStorage.token;
+        if (token) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     UserApiService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
