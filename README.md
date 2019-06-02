@@ -1,4 +1,4 @@
-# MERN_ITI_READS
-Good reads simulation with Mongo DB - Express - React - Node (MERN Stack) 
+# MEAN TodoList App
+Good reads simulation with Mongo DB - Express - Angular - Node (MEAN Stack) 
 
-Deployed on heroku at: https://thawing-earth-84941.herokuapp.com
+Deployed on heroku at: https://dry-hamlet-53797.herokuapp.com/
